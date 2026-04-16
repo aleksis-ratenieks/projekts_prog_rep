@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Datoru saraksts</h2>
+<table>
+<tr><th>Nosaukums</th><th>Statuss</th></tr>
+{% for d in datori %}
+<tr><td>{{ d.nosaukums }}</td><td>{{ d.statuss }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
