@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Datoru pieejamība</h2>
+<p>Pašreizējā temperatūra Kuldīgā: {{ laikapst }} °C</p>
+
+<form action="{{ url_for('panemt_datoru') }}" method="post">
+    <label>Dators:</label>
+    <select name="dators_id">
+        {% for d in datori %}
+            <option value="{{ d.id }}">{{ d.nosaukums }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Skolotājs:</label>
+    <select name="skolotajs_id">
+        {% for s in datori[0].lietojumi[0].skolotajs.query.all() if datori[0].lietojumi %}
+            <option value="{{ s.id }}">{{ s.vards }} {{ s.uzvards }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Paņemt datoru</button>
+</form>
+
+<table>
+<tr><th>Dators</th><th>Statuss</th><th>Darbība</th></tr>
+{% for d in datori %}
+<tr>
+    <td>{{ d.nosaukums }}</td>
+    <td>{{ d.statuss }}</td>
+    <td>
+        {% if d.statuss == "aizņemts" %}
+            <a href="{{ url_for('atgriezt_datoru', datora_id=d.id) }}">Atgriezt</a>
+        {% else %}
+            Pieejams
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
