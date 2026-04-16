@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reģistrētie skolotāji</h2>
+<table>
+<tr><th>Vārds</th><th>Uzvārds</th><th>E-pasts</th></tr>
+{% for s in skolotaji %}
+<tr><td>{{ s.vards }}</td><td>{{ s.uzvards }}</td><td>{{ s.epasts }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
