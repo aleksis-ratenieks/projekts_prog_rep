@@ -1,0 +1,14 @@
+body { font-family: Arial; background:#f0f4f8; margin:0; }
+nav { background:#294a66; padding:10px; }
+nav a { color:white; margin:0 10px; text-decoration:none; }
+.container { padding:20px; }
+table { border-collapse:collapse; width:100%; }
+th, td { padding:10px; border:1px solid #ccc; background:white; }
+.flash p { padding:10px; margin:10px 0; border-radius:5px; }
+.flash .success { background:#c8e6c9; }
+.flash .error { background:#ffcdd2; }
+.flash .info { background:#bbdefb; }
+button {
+  background:#294a66; color:white; border:none; padding:8px 16px; cursor:pointer;
+}
+button:hover { background:#1e3650; }
