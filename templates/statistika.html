@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lietojumu vēsture</h2>
+<table>
+<tr><th>Dators</th><th>Skolotājs</th><th>Sākums</th><th>Beigas</th></tr>
+{% for l in lietojumi %}
+<tr>
+<td>{{ l.dators.nosaukums }}</td>
+<td>{{ l.skolotajs.vards }} {{ l.skolotajs.uzvards }}</td>
+<td>{{ l.sakums.strftime("%Y-%m-%d %H:%M") }}</td>
+<td>{{ l.beigas.strftime("%Y-%m-%d %H:%M") if l.beigas else "nav atdots" }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
